@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "classmap": ["Classes"],
+    "psr-4": {
+      "Sabt\\": "classes"
+    }
+  }
+}
