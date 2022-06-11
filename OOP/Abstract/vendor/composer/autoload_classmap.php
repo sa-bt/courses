@@ -6,8 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AccessModifier\\ChildClass' => $baseDir . '/Classes/ChildClass.php',
-    'AccessModifier\\Visibility' => $baseDir . '/Classes/Visibility.php',
+    'AbstractCourse\\AbstractClass' => $baseDir . '/Classes/AbstractClass.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Interface\\SampleInterface' => $baseDir . '/Classes/AbstractClass.php',
+    'InterfaceCourse\\User' => $baseDir . '/Classes/User.php',
 );
