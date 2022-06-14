@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL
+);
+INSERT INTO `users` (`first_name`, `last_name`) VALUES ('Ahmad', 'Bakhshian');
+INSERT INTO `users` (`first_name`, `last_name`) VALUES ('Behzad', 'Moradi');
