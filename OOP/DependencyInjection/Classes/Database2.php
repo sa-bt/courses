@@ -2,7 +2,7 @@
 
 namespace DependencyInjection;
 
-final class Database implements DatabaseInterface
+final class Database2 implements DatabaseInterface
 {
     public $connection;
 
