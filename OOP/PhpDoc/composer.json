@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "classmap": ["Classes"],
+    "psr-4": {
+      "PhpDocs\\": "Classes"
+    }
+  },
+  "require": {
+    "phpdocumentor/phpdocumentor": "2.*"
+  }
+}
