@@ -1,0 +1,14 @@
+commandSubstitution.sh
+ConditionalStatements
+Files
+getParameters.sh
+globalVariables.sh
+Loops
+output_file.txt
+Strings
+tput.sh
+trap.sh
+userInput.sh
+
+<<<OS Name>>>
+Linux
