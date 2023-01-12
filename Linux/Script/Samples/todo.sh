@@ -14,13 +14,13 @@ function _list {
   cat "$file" | awk -F, '{print $1" | "$2" | "$3}' | while read line; do
     pretty_line=$(printf "%d | %s" "$number" "$line")
     echo "$pretty_line"
-    number=$((number+1))
+    number=$((number + 1))
   done
 }
-
 function clear {
   >$file
 }
+
 case $1 in
 "add")
   while [ -n "$2" ]; do
@@ -61,7 +61,11 @@ case $1 in
   clear
   ;;
 "list")
-_list;;
+  _list
+  ;;
+  "find")
+
+  ;;
 *)
   echo "Command Not Supported!"
   ;;
