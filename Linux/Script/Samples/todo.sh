@@ -63,10 +63,33 @@ case $1 in
 "list")
   _list
   ;;
-  "find")
+"find")
+  i=1
+  while read line; do
+    IFS=','
+    read -ra l <<<$line
+    #Reading each line
+    if [[ $line == *"$2"* ]]; then
+      echo "$i | ${l[0]} | ${l[1]} | ${l[2]}"
+    fi
+    i=$((i + 1))
+  done <$file
+  ;;
 
+"done")
+  i=1
+  while read line; do
+    IFS=','
+    read -ra l <<<$line
+    #Reading each line
+    if [[ $i == $2 ]]; then
+      echo "1,${l[1]},${l[2]}"
+    else
+      echo "${l[0]},${l[1]},${l[2]}"
+    fi
+    i=$((i + 1))
+  done <$file >tasks.csv.t
+  mv tasks.csv{.t,}
   ;;
-*)
-  echo "Command Not Supported!"
-  ;;
+
 esac
