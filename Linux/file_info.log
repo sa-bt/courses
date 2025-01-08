@@ -1,0 +1,10 @@
+[Wed 30 Apr 2025 04:00:56 PM +0330] File 'example_file.txt' was created.
+[Wed 30 Apr 2025 04:01:58 PM +0330] File 'example_file.txt' already existed.
+  File: example_file.txt
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 8,2	Inode: 5374755     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ develop)   Gid: ( 1000/ develop)
+Access: 2025-04-30 16:00:56.933903858 +0330
+Modify: 2025-04-30 16:00:56.933903858 +0330
+Change: 2025-04-30 16:00:56.933903858 +0330
+ Birth: 2025-04-30 16:00:56.932903910 +0330
