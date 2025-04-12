@@ -28,6 +28,3 @@ if [ $DOTS -eq 3 ]; then
   else
     echo "IP is not validated, Please try again"
 fi
-# echo $DOTS
-#Ip validation
-echo "Hello World"
