@@ -7,39 +7,47 @@ YELLOW='\033[1;33m'
 RED='\033[1;31m'
 NC='\033[0m'
 
-# Flags and descriptions
+# Flag descriptions
 declare -A flags
-flags["-l"]="Long listing format (detailed info)"
-flags["-a"]="Include hidden files"
-flags["-h"]="Human-readable sizes (use with -l)"
-flags["-R"]="Recursive listing of directories"
-flags["-S"]="Sort by file size"
-flags["-t"]="Sort by modification time"
-flags["-r"]="Reverse order"
-flags["-d"]="List directory itself, not its contents"
-flags["-i"]="Show inode numbers"
-flags["-1"]="One entry per line"
+flags["l"]="Long listing format"
+flags["a"]="Include hidden files"
+flags["h"]="Human-readable sizes"
+flags["R"]="Recursive listing"
+flags["S"]="Sort by file size"
+flags["t"]="Sort by modification time"
+flags["r"]="Reverse order"
+flags["d"]="List directory itself"
+flags["i"]="Show inode numbers"
+flags["1"]="One entry per line"
 
-# Welcome message
-echo -e "${YELLOW}=== Interactive LS Flags Explorer ===${NC}"
-
-# Show available flags
-echo -e "${CYAN}Available flags:${NC}"
-for flag in "${!flags[@]}"; do
-    echo -e "  ${BLUE}$flag${NC} — ${flags[$flag]}"
+# Display available flags
+echo -e "${YELLOW}=== LS Flags (Multiple) Explorer ===${NC}"
+echo -e "${CYAN}Supported flags:${NC}"
+for f in "${!flags[@]}"; do
+  echo -e "  ${BLUE}-$f${NC} — ${flags[$f]}"
 done
 
-# Ask user to choose one
-echo -ne "\n${YELLOW}Enter a flag to test (e.g., -l): ${NC}"
-read user_flag
+# Get user input
+echo -ne "\n${YELLOW}Enter multiple flags (without space, e.g. lha): ${NC}"
+read user_input
 
-# Check if valid
-if [[ -n "${flags[$user_flag]}" ]]; then
-    echo -e "\n${BLUE}Flag: $user_flag${NC} — ${flags[$user_flag]}"
-    echo -e "${CYAN}Running: ls $user_flag${NC}\n"
-    ls $user_flag
+# Extract flags and validate
+valid_flags=""
+echo -e "\n${CYAN}Flag descriptions:${NC}"
+for (( i=0; i<${#user_input}; i++ )); do
+  char="${user_input:$i:1}"
+  if [[ -n "${flags[$char]}" ]]; then
+    echo -e "  ${BLUE}-$char${NC} — ${flags[$char]}"
+    valid_flags+="$char"
+  else
+    echo -e "  ${RED}-$char is not supported in this tutorial.${NC}"
+  fi
+done
+
+# Run ls if any valid flag
+if [[ -n "$valid_flags" ]]; then
+  echo -e "\n${CYAN}Running: ls -$valid_flags${NC}"
+  ls -$valid_flags
 else
-    echo -e "${RED}Invalid flag or unsupported in this script.${NC}"
+  echo -e "\n${RED}No valid flags were entered.${NC}"
 fi
-
-echo -e "\n${YELLOW}=== End of Session ===${NC}"
